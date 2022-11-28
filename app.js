@@ -4,20 +4,18 @@ const pWeather = document.getElementById("weather");
 const waitingArea = document.querySelector("#waitingArea"); //waiting area div
 const paraWaitingArea = document.querySelector("#paraCustWaiting") //paragraph for Customer Waiting
 
+//Getting current date and time, and setting it in the required format for API
 let currentDate =  new Date();
 let cDay = currentDate.getDate()
 let cMonth = currentDate.getMonth() + 1
 let cYear = currentDate.getFullYear()
 let time = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
-let setTime = `${cYear}-${cMonth}-${cDay}T0${currentDate.getHours()}:00`;
+let setTime = `${cYear}-${cMonth}-${cDay}T${currentDate.getHours()}:00`;
 
-
-let custWaiting = 0; //number of customers waiting is set to 0 in the beginning
+let custWaiting = 0; //number of customers waiting is set to 0 at page load
 console.log("Number of customer waiting",custWaiting);
-
 displayWaitCount(custWaiting); //invokes the function to display number of customers waiting at home page
-
-checkInBtn.addEventListener("click",updateDisplayWaitCount);
+checkInBtn.addEventListener("click",updateDisplayWaitCount); // updates number of customers waiting when Check in button is clicked
 
 //Function to update number of customers waiting
 function updateDisplayWaitCount(event){
@@ -73,8 +71,8 @@ $.get({
         weatherDisplay.append(pDateTime);
         weatherDisplay.append(pTemperature);
 
-        pLocation.append("Clarksville:");
-        pTimezone.append("Timezone: " + data["timezone"]);
+        pLocation.append("Location: Clarksville, TN");
+        //pTimezone.append("Timezone: " + data["timezone"]);
         pDateTime.append(setTime);
 
         let requiredIndex = getObjKey(data["hourly"]["time"],setTime);
@@ -82,10 +80,10 @@ $.get({
         console.log("required index is ", requiredIndex);
         console.log("temp in C is ", tempInC);
         console.log("Current Time is ", setTime);
-        
+
         let tempInF = convertToF(tempInC);
         
-        let currentTemp = `Temp: ${tempInF}F`;
+        let currentTemp = `Current Temp: ${tempInF}F`;
     
         pTemperature.append(currentTemp);
     },
