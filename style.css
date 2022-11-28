@@ -1,0 +1,102 @@
+.top-nav-bar{
+    display: flex;
+    justify-content: space-between;
+    padding:30px;
+
+}
+
+.below-nav-bar{
+    display: flex;
+    justify-content: space-between;
+    padding:30px;
+}
+
+.top-nav-wrapper-left{
+    display: flex;
+    text-transform: uppercase;
+}
+
+.center-display{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.home-link, .about-link{
+    margin-right: 20px;
+    color: #8a8a8a;
+    transition: color 0.5s;
+
+}
+
+.body-div-left{
+    margin-right: 20px;
+
+}
+
+.body{
+     background: rgba(191,164,111,255);
+     padding: 30px;
+}
+
+#checkInBtn-bottom{
+    margin-top: 10px;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 300px 300px;
+    grid-auto-rows: minimax(150px, auto);
+    gap: 10px;
+    padding: 10px;
+    grid-template-areas:
+    "header header"
+    "sidebar content"
+    "sidebar content"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.grid-container > div {
+    text-align: center;
+    border-style: solid;
+    padding: 20px 0;
+    font-size: 30px;
+    border: 5px;
+  }
+
+.grid-item-1{
+    grid-area: header;
+    height: 5px;
+
+}
+
+.grid-item-2{
+    grid-area: sidebar;
+}
+.grid-item-3{
+    grid-area: content;
+}
+
+/* .grid-item-4{
+    grid-area: sidebar;
+}
+.grid-item-5{
+    grid-area: content;
+    
+} */
